@@ -6,8 +6,11 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(article_params)
 
-        @article.save
+        if @article.save
         redirect_to @article
+        else
+            render 'new'
+        end
     end
 
     def show
