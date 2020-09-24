@@ -50,11 +50,11 @@ jobs:
           ruby-version: 2.7.0
 
       - name: Install Brakeman
-        runs: |
+        run: |
           gem install brakeman
 
       - name: Run Brakeman
-        runs: |
+        run: |
           brakeman -f json > tmp/brakeman.js || exit 0
 
       - name: Brakeman Report
