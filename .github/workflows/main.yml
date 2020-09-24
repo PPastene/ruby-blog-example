@@ -17,7 +17,12 @@ jobs:
         uses: ruby/setup-ruby@v1.46.0
         with: 
           ruby-version: 2.7.0
-
+      
+      - name: Install Yarn
+        uses: Borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+      
       - name: Install Dependencies
         run: |
           gem install bundler
