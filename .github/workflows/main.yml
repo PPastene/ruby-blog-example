@@ -18,7 +18,6 @@ jobs:
         with: 
           ruby-version: 2.7.0
       
-      - name: Install Yarn
         uses: Borales/actions-yarn@v2.3.0
         with:
           cmd: install
@@ -38,3 +37,28 @@ jobs:
       - name: Run Tests
         run: |
           bundle exec rails test
+  
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.46.0
+        with: 
+          ruby-version: 2.7.0
+
+      - name: Install Brakeman
+        runs: |
+          gem install brakeman
+
+      - name: Run Brakeman
+        runs: |
+          brakeman -f json > tmp/brakeman.js || exit 0
+
+      - name: Brakeman Report
+        uses: devmasx/brakeman-linter-action@v1.0.0
+        env:
+          REPORT_PATH: tmp/brakeman.json
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
