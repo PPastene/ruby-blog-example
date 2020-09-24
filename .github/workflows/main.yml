@@ -55,7 +55,7 @@ jobs:
 
       - name: Run Brakeman
         run: |
-          brakeman -f json > tmp/brakeman.js || exit 0
+          brakeman -f json > tmp/brakeman.json || exit 0
 
       - name: Brakeman Report
         uses: devmasx/brakeman-linter-action@v1.0.0
