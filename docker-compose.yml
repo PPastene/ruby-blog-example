@@ -1,11 +1,12 @@
 version: '3.5'
 services:
     
-    ruby_dev:
+    web:
         build: .
-        container_name: ruby_dev
+        container_name: rails_dev
+        command: bundle exec rails s -p 3000 -b '0.0.0.0'
         ports:
             - "3000:3000"
         volumes:
-            - ./:/home/app
-            - ./node_modules:/home/app/node_modules
+            - .:/rails
+            - /node_modules
