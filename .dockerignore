@@ -1,2 +1,12 @@
+.git
 .gitignore
-/node_modules
+README.md
+
+## Rails ##
+log
+tmp
+db/*.sqlite3
+db/*.sqlite3-journal
+
+## NPM ##
+node_modules/
