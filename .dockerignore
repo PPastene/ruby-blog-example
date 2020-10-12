@@ -3,8 +3,10 @@
 README.md
 
 ## Rails ##
-log
-tmp
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
 db/*.sqlite3
 db/*.sqlite3-journal
 
