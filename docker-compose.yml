@@ -10,3 +10,9 @@ services:
         volumes:
             - .:/app/
             - /node_modules:/app/node_modules/
+            - cache:/cache # Added to support Windows 10 Docker
+        environment:
+            - SPROCKETS_CACHE=/cache # Added to support Windows 10 Docker
+
+volumes:
+    cache:
