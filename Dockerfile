@@ -1,6 +1,6 @@
 FROM ruby:2.7.0-alpine
 
-RUN apk update && apk add bash build-base git nodejs openssl sqlite-dev tzdata yarn
+RUN apk update && apk add -u bash build-base git nodejs openssl sqlite-dev tzdata yarn
 
 WORKDIR /app
 
