@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  
-  resources :contact
 
   resources :articles do
     resources :comments
